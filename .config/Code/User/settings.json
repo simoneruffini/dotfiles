@@ -1,0 +1,10 @@
+{
+    "workbench.colorTheme": "One Dark Darker",
+    "C_Cpp.clang_format_path": "/usr/bin/clang-format",
+    "vscode-neovim.neovimPath": "/usr/bin/nvim",
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 0,
+    "editor.formatOnSave": true,
+    "vim.neovimPath": "/usr/vin/nvim",
+    "liveshare.presence": true
+}

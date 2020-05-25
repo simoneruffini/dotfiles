@@ -1,0 +1,5 @@
+[alias]
+	graph = log --graph --oneline --color --all
+[user]
+	name = Simone Ruffini
+	email = simone.ruffini@tutanota.com
