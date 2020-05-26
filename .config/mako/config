@@ -1,0 +1,16 @@
+## mako: notification daemon for wayland
+## mako config file (see man 5 mako)
+
+max-visible=3
+sort=-time
+anchor=bottom-right
+
+height=150
+
+##do not show icons
+icons=0
+
+default-timeout=8000
+ignore-timeout=1
+
+
