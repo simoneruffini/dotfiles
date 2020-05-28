@@ -3,14 +3,14 @@
 
 max-visible=3
 sort=-time
-anchor=bottom-right
+anchor=top-right
 
 height=150
 
 ##do not show icons
 icons=0
 
-default-timeout=8000
+default-timeout=7000
 ignore-timeout=1
 
 
