@@ -3,6 +3,9 @@
 # sets the padding from two consecutive pages
 set page-padding 1
 
+# selections are pasted to noramal clipboard -> pastable with ctr+v
+set selection-clipboard clipboard
+
 map u scroll half-up
 map d scroll half-down
 map p toggle_page_mode
