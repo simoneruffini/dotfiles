@@ -1,6 +1,10 @@
 export EDITOR=vim
+# aliases
+## General
 alias ls="ls --color"
 alias ll="ls -a -l"
+## alias to manage dotfiles
+alias dots="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 #
 # enable wayland mode for mozilla
@@ -19,5 +23,3 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 ##
 export HOSTNAME=$HOST 
 
-## alias to manage dotfiles
-alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
