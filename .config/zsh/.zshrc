@@ -5,6 +5,9 @@ HISTFILE=~/.cache/zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
+# Load aliases if existent
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc"
+
 # Autoload prompt theme system
 autoload -U compinit promptinit 	
 zstyle ':completion:*' menu select	# Enable autocompletion with arrow keys
@@ -63,5 +66,3 @@ bindkey '^e' edit-command-line
 
 # Load syntax highlighting; should be last. (the plugin must be installed)
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-
-#test one two three
