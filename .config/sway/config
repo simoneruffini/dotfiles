@@ -93,7 +93,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -215,7 +215,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top 
+    position top
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -236,6 +236,8 @@ font "IBM Plex Mono"
 # Display manager for multiple displays
 #
 # config files in .config/kanshi/cofig
-#
 exec kanshi
 
+#
+# Set window/dispaly rules for applications
+include $XDG_CONFIG_HOME/sway/config.d/*
