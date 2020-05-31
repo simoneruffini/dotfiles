@@ -5,15 +5,17 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
+	..="cd .."  \
+	bc="bs -l"  \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm="rm -vI" \
-	mkd="mkdir -pv" 
+	mkd="mkdir -pv"\
+	rm="rm -vI --preserve-root"
 
 # Colorize commands when possible.
 alias \
 	ls="ls -hN --color=auto --group-directories-first" \
-	ll="ls -l -a"\
+	ll="ls -la"\
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
@@ -28,9 +30,13 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	p="sudo pacman" \
+	j="jobs -l"\
 	z="zathura"
 
-alias tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" 
+# Application specific
+alias \
+	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"\
+	wget="wget -c"\ #restart download from where it left
 
 # alias to manage dotfiles
 alias dots="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

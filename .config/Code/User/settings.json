@@ -6,5 +6,8 @@
     "window.zoomLevel": 0,
     "editor.formatOnSave": true,
     "vim.neovimPath": "/usr/vin/nvim",
-    "liveshare.presence": true
+    "liveshare.presence": true,
+    "editor.fontFamily": "'Iosevka Term SS08','Droid Sans Mono', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15
 }
