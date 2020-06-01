@@ -16,6 +16,10 @@ set $right l
 # Preferred terminal emulator
 set $term alacritty
 
+# Border size
+set $border_size 2
+set $gaps_def_inc 5
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -138,10 +142,24 @@ input type:touchpad {
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
+    # for horizontal and vertical splits respectively.
     bindsym $mod+alt+h splith
     bindsym $mod+alt+v splitv
+
+
+    ## Border
+    default_border pixel $border_size
+    hide_edge_borders smart_no_gaps
+    smart_borders no_gaps
+    default_floating_border normal $border_size
+    # Toggle border apperance
+    bindsym $mod+b border normal $border_size
+    bindsym $mod+Shift+b border pixel $border_size
+
+    ##Gaps
+    bindsym $mod+g gaps inner current plus $gaps_def_inc
+    bindsym $mod+Shift+g gaps inner current set 0
+
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
