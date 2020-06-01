@@ -1,7 +1,8 @@
-{
+profile stationary{
 	output eDP-1 disable
-	output "Dell Inc. DELL U2414H 4VKH665N5TRS" mode 1920x1080 position 5778,0			
+	output DP-3 mode 1920x1080 position 5778,0
 }
-{
+
+profile nomad{
 	output eDP-1 enable scale 2
 }

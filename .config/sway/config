@@ -1,38 +1,33 @@
-# Default config for sway
+# Config for sway
 #
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
+# Default config find at /etc/sway/config
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
-#
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
+# Logo key used as mod
+set $mod Mod
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+
+# Preferred terminal emulator
 set $term alacritty
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu bemenu-run -b -l 10 --scrollbar=always -H 25 -m all | xargs swaymsg exec --
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# use personal script to set background
 exec setbg
 
+# To get the names of other outputs run: swaymsg -t get_outputs
 output eDP-1 scale 2
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+# note: this will be amended by kanshi
 
 ### Idle configuration
 #
@@ -51,28 +46,17 @@ output eDP-1 scale 2
 
 ### Input configuration
 #
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+
 ### Touchpad
 #
-#
-
-input "2:7:SynPS/2_Synaptics_TouchPad" {
+input type:touchpad {
 	dwt enabled
 	natural_scroll enabled
 	tap enabled
        	middle_emulation enabled
 }
-
 ### Key bindings
 #
 # Basics:
@@ -231,15 +215,14 @@ bar {
 
 include /etc/sway/config.d/*
 
-#font "IBM Plex Mono"
+# Set window/dispaly rules for specific applications
+include $XDG_CONFIG_HOME/sway/config.d/*
+
+## Font
+#
 font "Iosevka SS08 Semibold Extended"
 
-#
-# Display manager for multiple displays
+## Display manager for multiple displays
 #
 # config files in .config/kanshi/cofig
 exec kanshi
-
-#
-# Set window/dispaly rules for applications
-include $XDG_CONFIG_HOME/sway/config.d/*
