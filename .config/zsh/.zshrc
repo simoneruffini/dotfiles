@@ -1,6 +1,6 @@
 # Zsh config
 
-# Set history position ans numbero of records saved 
+# Set history position ans numbero of records saved
 HISTFILE=~/.cache/zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -9,7 +9,7 @@ SAVEHIST=1000
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc"
 
 # Autoload prompt theme system
-autoload -U compinit promptinit 	
+autoload -U compinit promptinit
 zstyle ':completion:*' menu select	# Enable autocompletion with arrow keys
 zmodload zsh/complist
 compinit				# Enable completition
@@ -66,3 +66,6 @@ bindkey '^e' edit-command-line
 
 # Load syntax highlighting; should be last. (the plugin must be installed)
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+
+# Load wpgtk colorscheme
+(cat $HOME/.cache/wal/sequences &)
