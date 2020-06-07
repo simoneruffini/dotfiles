@@ -7,12 +7,13 @@ set clipboard+=unnamedplus	" Save yanked files to clipboard
 	set nocompatible
 	filetype plugin on
 	syntax on
+	colorscheme slate
 	set encoding=utf-8
 	set number relativenumber
 
 " Enable autocompletion:
 	set wildmode=longest,list,full
-	
+
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -21,10 +22,10 @@ set clipboard+=unnamedplus	" Save yanked files to clipboard
 	map <C-j> <C-w>j
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
-	
+
 " Replace all, is aliased to S.
 	nnoremap S :%s//g<Left><Left>
-	
+
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
-	autocmd BufWritePre * %s/\s\+$//e
-	autocmd BufWritepre * %s/\n\+\%$//e
+	"autocmd BufWritePre * %s/\s\+$//e
+	"autocmd BufWritepre * %s/\n\+\%$//e

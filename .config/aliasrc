@@ -6,7 +6,7 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
 	..="cd .."  \
-	bc="bs -l"  \
+	bc="bc -l"  \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	mkd="mkdir -pv"\

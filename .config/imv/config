@@ -61,4 +61,4 @@ t = slideshow +1
 <Shift+T> = slideshow -1
 
 # Run Script
-<Ctrl+b> = exec setbg "$imv_current_file"
+<Ctrl+b> = exec setbg "$imv_current_file" &

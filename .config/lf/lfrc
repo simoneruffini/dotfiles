@@ -1,5 +1,7 @@
 # interpreter for shell commands (needs to be POSIX compatible)
-set shell sh
+set shell bash
+
+set color256
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -38,9 +40,12 @@ map O $mimeopen --ask $f
 cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
+	image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
+
+cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 
 # define a custom 'rename' command without prompt for overwrite
 # cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
@@ -97,3 +102,7 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+map <c-n> push :mkdir<space>
+map <c-r> reload
+map <enter> shell

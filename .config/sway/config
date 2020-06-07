@@ -3,6 +3,12 @@
 # Default config find at /etc/sway/config
 # Read `man 5 sway` for a complete reference.
 
+# colors from pywal
+include "$HOME/.cache/wal/colors-sway"
+
+# Set window/dispaly rules for specific applications
+include $XDG_CONFIG_HOME/sway/config.d/*
+
 ### Variables
 # Logo key used as mod
 set $mod Mod4
@@ -24,6 +30,7 @@ set $gaps_def_inc 5
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu bemenu-run -b -l 10 --scrollbar=always -H 25 -m all | xargs swaymsg exec --
+set $file swaymsg exec -- $term -e lf
 
 ### Output configuration
 # use personal script to set background
@@ -74,6 +81,7 @@ input type:touchpad {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+o exec $file
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -149,7 +157,7 @@ input type:touchpad {
 
     ## Border
     default_border pixel $border_size
-    hide_edge_borders smart_no_gaps
+    #hide_edge_borders smart_no_gaps
     smart_borders no_gaps
     default_floating_border normal $border_size
     # Toggle border apperance
@@ -223,19 +231,17 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%d-%m-%Y %l:%M:%S %p'; do sleep 1; done
+    status_command while date +'%d-%m-%Y %l:%M %p'; do sleep 60; done
 
     colors {
-        statusline #ffffff
-        background #323232
+        statusline $foreground
+        background $background
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
 
 include /etc/sway/config.d/*
 
-# Set window/dispaly rules for specific applications
-include $XDG_CONFIG_HOME/sway/config.d/*
 
 ## Font
 #
@@ -244,4 +250,4 @@ font "Iosevka SS08 Semibold Extended"
 ## Display manager for multiple displays
 #
 # config files in .config/kanshi/cofig
-exec_always killall kanshi; exec kanshi
+exec kanshi
