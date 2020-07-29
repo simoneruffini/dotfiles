@@ -37,7 +37,7 @@ set $file swaymsg exec -- $term -e lf
 exec setbg
 
 # To get the names of other outputs run: swaymsg -t get_outputs
-output eDP-1 scale 2
+output eDP-1 scale 2.5
 # note: this will be amended by kanshi
 
 ### Idle configuration
