@@ -1,3 +1,5 @@
 #!/bin/sh
+## This script outputs to stdout the request to http://cheat.sh/<name of parameter>
+## The parameter is a linux binary for which a quick and simple use case/guide is needed
 
-curl cheat.sh/$1
+wget -qO- cheat.sh/$1
