@@ -65,14 +65,17 @@ window:
   # Window title
   title: Alacritty
 
-  # Window class (Linux only):
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
+
+  # Window class (Linux/BSD only):
   #class:
     # Application instance name
     #instance: Alacritty
     # General application class
     #general: Alacritty
 
-  # GTK theme variant (Linux only)
+  # GTK theme variant (Linux/BSD only)
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
   # Set this to `None` to use the default theme variant.
@@ -100,21 +103,23 @@ font:
     family: "Iosevka Term SS08"
 
     # The `style` can be specified to pick a specific face.
-    #style: Regular
+    style: Regular
 
   # Bold font face
-  #bold:
+  bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "Iosevka Term SS08"
+    family: "Iosevka Term SS08 Heavy"
+    #family: "Iosevka Term SS08"
 
     # The `style` can be specified to pick a specific face.
     #style: Bold
+    #style: Regular 
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
@@ -122,18 +127,18 @@ font:
     family: "Iosevka Term SS08"
 
     # The `style` can be specified to pick a specific face.
-    #style: Italic
+    style: Italic
 
   # Bold italic font face
-  #bold_italic:
+  bold_italic:
     # Font family
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "Iosevka Term SS08"
+    family: "Iosevka Term SS08 Heavy"
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold Italic
+    style: Italic
 
   # Point size
   size: 12.0
@@ -146,7 +151,7 @@ font:
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
-  # increasing `y` moves the glyph upwards.
+  # increasing `y` moves the glyph upward.
   #glyph_offset:
     #x: 0
     #y: 0
@@ -208,17 +213,16 @@ draw_bold_text_with_bright_colors: true
   # Search colors
   #
   # Colors used for the search bar and match highlighting.
-  #
-  # Allowed values are CellForeground and CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
   #search:
-  #  matches:
-  #    foreground: '#000000'
-  #    background: '#ffffff'
-  #
-  #  bar:
-  #    background: CellForeground
-  #    foreground: CellBackground
+    # Allowed values are CellForeground and CellBackground, which reference the
+    # affected cell, or hexadecimal colors like #ff00ff.
+    #matches:
+    #  foreground: '#000000'
+    #  background: '#ffffff'
+
+    #bar:
+    #  background: '#c5c8c6'
+    #  foreground: '#1d1f21'
 
   # Normal colors
   #normal:
@@ -319,10 +323,7 @@ selection:
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
 
-# Allow terminal applications to change Alacritty's window title.
-window.dynamic_title: true
-
-cursor:
+#cursor:
   # Cursor style
   #
   # Values for `style`:
