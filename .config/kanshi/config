@@ -1,6 +1,10 @@
-profile stationary{
+profile stationary_hdmi{
 	output eDP-1 disable
 	output DP-3 mode 1920x1080 position 5778,0
+}
+profile stationary_typeC{
+	output eDP-1 disable
+	output DP-1 mode 1920x1080 position 5778,0
 }
 
 profile nomad{
