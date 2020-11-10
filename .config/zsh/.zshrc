@@ -15,9 +15,14 @@ zmodload zsh/complist
 compinit				# Enable completition
 promptinit				# Enable completion listing extensions
 _comp_options+=(globdots)		# Include hidden files in autocompletion.
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION  #zcompdumps speed completion listing
 
 # This will set the default prompt to the walters theme
 prompt walters
+
+# Change prompt:
+setopt autocd		# Automatically cd into typed directory.
+stty stop undef		# Disable ctrl-s to freeze terminal.
 
 # Vim mode for zsh change with -e to emacs(std of bash)
 bindkey -v
@@ -42,6 +47,12 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
+bindkey -s '^a' 'bc -l\n' # for calcluator
+
+bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n' # use fuzzy finder
+
+bindkey '^[[P' delete-char
+
 # Coax zsh to reash its own command cache when it goes out of date
 # used when a package is installed so it will be available with zsh completion
 #
@@ -64,8 +75,9 @@ add-zsh-hook -Uz precmd rehash_precmd
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# Load wpgtk colorscheme
+(cat $HOME/.cache/wal/sequences &)
+
 # Load syntax highlighting; should be last. (the plugin must be installed)
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
-# Load wpgtk colorscheme
-(cat $HOME/.cache/wal/sequences &)

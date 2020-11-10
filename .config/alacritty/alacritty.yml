@@ -98,9 +98,11 @@ font:
     # Default:
     #   - (macOS) Menlo
     #   - (Linux) monospace
-    #     to get possible values run fc-list : family | uniq | sort
+    #     to get possible values run fc-list : family | sort | uniq 
     #   - (Windows) Consolas
-    family: "Iosevka Term SS08"
+    #family: "Iosevka Term SS08"
+    #family: "PragmataPro Mono Liga"
+    family: "PragmataPro Liga"
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -111,11 +113,12 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "Iosevka Term SS08 Heavy"
+    #family: "Iosevka Term SS08 Heavy"
     #family: "Iosevka Term SS08"
+    family: "PragmataPro Liga"
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    style: Bold
     #style: Regular 
 
   # Italic font face
@@ -124,7 +127,8 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "Iosevka Term SS08"
+    #family: "Iosevka Term SS08"
+    family: "PragmataPro Liga"
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -135,10 +139,11 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "Iosevka Term SS08 Heavy"
+    #family: "Iosevka Term SS08 Heavy"
+    family: "PragmataPro Liga"
 
     # The `style` can be specified to pick a specific face.
-    style: Italic
+    style: Bold Italic
 
   # Point size
   size: 12.0

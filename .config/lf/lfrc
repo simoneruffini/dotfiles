@@ -2,6 +2,14 @@
 set shell bash
 
 set color256
+set icons
+
+# List of hidden file glob patterns. Patterns can be given as relative or absolute
+# paths. Globbing supports the usual special characters, '*' to match any sequence,
+# '?' to match any character, and '[...]' or '[^...] to match character sets or 
+# ranges. In addition, if a pattern starts with '!', then its matches are excluded 
+# from hidden files.
+set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -53,10 +61,19 @@ cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 
 # make sure trash folder exists
 %mkdir -p ~/.trash
+#%mkdir -p $XDG_DATA_HOME/Trash/file $XDG_DATA_HOME/Trash/info
 
 # move current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
 cmd trash %set -f; mv $fx ~/.trash
+#cmd trash ${{
+#	set -f
+#	printf "$fx\n"
+#	#echo "[Trash Info]\nPath=$fx\nDeletionDate=$(date -Iseconds)\n">>$XDG_DATA_HOME/Trash/info/$f.trashinfo
+#	
+#	printf "delete?[y/n]"
+#     	read ans
+#}}
 
 # define a custom 'delete' command
 # cmd delete ${{
@@ -106,3 +123,9 @@ cmd zip ${{
 map <c-n> push :mkdir<space>
 map <c-r> reload
 map <enter> shell
+
+map A rename # at the very end
+map I push A<c-a> # at the very beginning
+map i push A<a-b><a-b><a-f> # before extention
+map a push A<a-b> # after extention
+

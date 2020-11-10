@@ -231,7 +231,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%d-%m-%Y %l:%M %p'; do sleep 60; done
+    status_command while  echo " $(cat /sys/class/power_supply/BAT0/capacity)%  $(date +'%d-%m-%Y %l:%M %p')"; do sleep 60; done
 
     colors {
         statusline $foreground
@@ -246,8 +246,10 @@ include /etc/sway/config.d/*
 ## Font
 #
 font "Iosevka SS08 Semibold Extended"
+#font "OCRA"
 
 ## Display manager for multiple displays
 #
 # config files in .config/kanshi/cofig
-exec kanshi
+exec_always pkill kanshi; exec kanshi
+##exec kanshi
