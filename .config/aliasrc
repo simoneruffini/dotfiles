@@ -10,7 +10,8 @@ alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	mkd="mkdir -pv"\
-	rm="rm -vI --preserve-root"
+	rm="rm -vI --preserve-root"\
+	cal="cal -m"
 
 # Colorize commands when possible.
 alias \
