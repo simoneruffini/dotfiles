@@ -1,14 +1,27 @@
-profile stationary_thunderbolt{
+profile stationary_thunderbolt_HD{
 	output DP-5 enable 
+	output eDP-1 disable 
+}
+profile stationary_thunderbolt_HD2{
+	output DP-6 enable 
+	output eDP-1 disable 
+}
+profile stationary_thunderbolt_2k(main)_FHD(left90){
+	output DP-4 enable mode 2560x1440@119.998001Hz position 1080,0
+	output DP-7 enable position 0,0 transform 90
+	output eDP-1 disable 
+}
+profile stationary_thunderbolt_2k{
+	output DP-4 enable mode 2560x1440@119.998001Hz
 	output eDP-1 disable 
 }
 profile stationary_hdmi{
 	output eDP-1 disable
-	output DP-3 mode 1920x1080 position 5778,0
+	output DP-3 enable mode 1920x1080 position 5778,0
 }
 profile stationary_typeC{
 	output eDP-1 disable
-	output DP-1 mode 1920x1080 position 5778,0
+	output DP-1 enable mode 1920x1080 position 5778,0
 }
 
 profile nomad{
