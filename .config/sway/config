@@ -262,3 +262,6 @@ font "Iosevka SS08 Semibold Extended"
 # config files in .config/kanshi/cofig
 exec_always pkill kanshi; exec kanshi
 ##exec kanshi
+# enable autotiling
+# needs autotiling package
+exec autotiling
