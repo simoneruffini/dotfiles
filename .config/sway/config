@@ -22,9 +22,11 @@ set $right l
 # Preferred terminal emulator
 set $term alacritty
 
-# Border size
-set $border_size 2
+# Border values
+set $border_size 4
 set $gaps_def_inc 5
+exec border pixel $border_size
+client.focused #4c7899 #ffffff #000000
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -96,7 +98,9 @@ input type:touchpad {
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
     # Launch system power menu in bemenu
-    bindsym $mod+Shift+Escape exec powermenu.sh
+    bindsym $mod+Shift+Escape exec power_menu.sh
+    # Launch system screenshot menu in bemenu
+    bindsym Print exec screenshot_menu.sh
 #
 # Moving around:
 #
