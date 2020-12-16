@@ -100,7 +100,10 @@ input type:touchpad {
     # Launch system power menu in bemenu
     bindsym $mod+Shift+Escape exec power_menu.sh
     # Launch system screenshot menu in bemenu
-    bindsym Print exec screenshot_menu.sh
+    # by saving picture
+    bindsym Print exec screenshot_menu.sh save
+    # by coping to clipboard 
+    bindsym Shift+Print exec screenshot_menu.sh copy
 #
 # Moving around:
 #

@@ -1,11 +1,22 @@
 #!/bin/sh
+## This script enables screenshot management via bemenu over sway. 
+## Requirements grimshot, wl-copy
 
-sway_cmd="swaymsg exec"
+
+
 base_cmd="grimshot --notify"
 
+## action can be either copy or save, by default save
+if [ -z "$1" ] 
+then 
+	action="save"
+else
+	action="$1"
+fi
+
 case "$(echo -e " Select window\n Select Area\n Screen\n All Screens\n" | bemenu -l 4 -p "Screenshot:")" in
-" Select window") $sway_cmd "$base_cmd save window" ;;  
-" Select Area") $sway_cmd "$base_cmd save area" ;;  
-" Screen") $sway_cmd "$base_cmd save output" ;;  
-" All Screens") $sway_cmd "$base_cmd save screen" ;;  
+" Select window")	$base_cmd $action window;;  
+" Select Area")	$base_cmd $action area	;;  
+" Screen") 		$base_cmd $action output;;  
+" All Screens") 	$sway_cmd $action screen;;  
 esac
