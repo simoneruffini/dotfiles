@@ -31,7 +31,7 @@ export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/pass"
 
 # Other program settings
 export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
-export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40% "
 export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
 export LESS=-R				# Color sequences are printed raw
 export _JAVA_AWT_WM_NONREPARENTING=1	# Used by wayland for scaling properly java apps
