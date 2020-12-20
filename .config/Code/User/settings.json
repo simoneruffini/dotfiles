@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Gruvbox Material Dark",
     "C_Cpp.clang_format_path": "/usr/bin/clang-format",
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
     "editor.minimap.enabled": false,
@@ -9,5 +8,8 @@
     "liveshare.presence": true,
     "editor.fontFamily": "'PragmataPro Liga','Iosevka Term SS08','Droid Sans Mono', monospace, 'Droid Sans Fallback'",
     "editor.fontLigatures": true,
-    "editor.fontSize": 15
+    "editor.fontSize": 15,
+    "workbench.colorTheme": "NaturalContrast-HC",
+    "workbench.preferredDarkColorTheme": "One Dark Darker",
+    "C_Cpp.clang_format_fallbackStyle": "Google"
 }
