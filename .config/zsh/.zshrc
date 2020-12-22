@@ -19,6 +19,7 @@ compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION  #zcompdumps speed comple
 
 # This will set the default prompt to the walters theme
 prompt walters
+setopt prompt_sp #to fix a bug that wats stdout lines that do not go to newline
 
 # Change prompt:
 setopt autocd		# Automatically cd into typed directory.
@@ -80,4 +81,3 @@ bindkey '^e' edit-command-line
 
 # Load syntax highlighting; should be last. (the plugin must be installed)
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-
