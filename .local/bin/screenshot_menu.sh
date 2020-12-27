@@ -18,5 +18,5 @@ case "$(echo -e " Select window\n Select Area\n Screen\n All Screens
 " Select window")	$base_cmd $action window;;  
 " Select Area")	$base_cmd $action area	;;  
 " Screen") 		$base_cmd $action output;;  
-" All Screens") 	$sway_cmd $action screen;;  
+" All Screens") 	$base_cmd $action screen;;  
 esac
