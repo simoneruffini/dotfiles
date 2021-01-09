@@ -14,7 +14,7 @@ else
 	action="$1"
 fi
 
-case "$(echo -e " Select window\n Select Area\n Screen\n All Screens\n" | bemenu -l 4 -p "Screenshot:")" in
+case "$(echo -e " Select window\n Select Area\n Screen\n All Screens\n" | bemenu -l 4 -m all -p "Screenshot:")" in
 " Select window")	$base_cmd $action window;;  
 " Select Area")	$base_cmd $action area	;;  
 " Screen") 		$base_cmd $action output;;  
