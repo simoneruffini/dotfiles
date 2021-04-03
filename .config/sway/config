@@ -31,7 +31,7 @@ client.focused #4c7899 #ffffff #000000
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run -b -l 10 --scrollbar=always -H 25 -m all | xargs swaymsg exec --
+set $menu bemenu-run -b -l 10 --scrollbar=always -H 25 -m all --no-exec | xargs swaymsg exec --
 set $file swaymsg exec -- $term -e lf
 
 ### Output configuration
