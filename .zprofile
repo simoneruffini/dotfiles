@@ -34,7 +34,7 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/pass"
 export GRIPHOME="${XDG_CACHE_HOME:-$HOME/.cache}/grip"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME:-$HOME/.config}"/java
-export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/"
+export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
 export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
 
 # Other program settings
@@ -44,6 +44,7 @@ export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
 export LESS=-R				# Color sequences are printed raw
 export LESSHISTFILE="-"
 export _JAVA_AWT_WM_NONREPARENTING=1	# Used by wayland for scaling properly java apps
+export XDG_CURRENT_DESKTOP=sway         #For xdg-desktop-portal-wlr to work 
 
 export LF_ICONS="di= :\
 fi= :\
