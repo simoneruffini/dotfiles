@@ -16,3 +16,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 ##
 export HOSTNAME=$HOST 
 
+## Start a stratup Python Script before any interactive shell is launched
+export PYTHONSTARTUP=${XDG_CONFIG_HOME}/python/pythonstartup.py
+
