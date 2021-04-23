@@ -9,17 +9,19 @@ alias \
 	bc="bc -l"  \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	mkd="mkdir -pv"\
-	rm="rm -vI --preserve-root"\
+	mkd="mkdir -pv" \
+	rm="rm -vI --preserve-root" \
 	cal="cal -m"
 
 # Colorize commands when possible.
 alias \
 	ls="ls -hN --color=auto --group-directories-first" \
-	ll="ls -lahN --color=auto --group-directories-first"\
+	ll="ls -lahN --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi"
+	ccat="highlight --out-format=ansi" \
+    rvim="vim -R" \
+    rnvim="nvim -R"
 
 # These common commands are just too long! Abbreviate them.
 alias \
@@ -31,13 +33,13 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	p="sudo pacman" \
-	j="jobs -l"\
+	j="jobs -l" \
 	z="zathura"
 
 # Application specific
 alias \
-	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"\
-	wget="wget -c"\ #restart download from where it left
+	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
+	wget="wget -c"  #restart download from where it left
 
 # alias to manage dotfiles
 alias dots="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
