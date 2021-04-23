@@ -12,6 +12,7 @@
 
 " Some basics:
     set number relativenumber
+    set cursorline
     set nohlsearch
     set noerrorbells
     set incsearch
@@ -21,8 +22,8 @@
         set shiftwidth=4
         set expandtab
         set smartindent
-	nnoremap c "_c          " makes changed text not saved in registers, does not alter registers
-	set nocompatible
+	"nnoremap c "_c          " makes changed text not saved in registers, does not alter registers
+	set nocompatible         " disables compatibility with vi mode
 	filetype plugin on
 	syntax on
 	colorscheme slate
@@ -34,7 +35,7 @@
     vnoremap J :m '>+1<CR>gv=gv     " Move line/s down in visual mode (looses indent)
     vnoremap K :m '<-2<CR>gv=gv     " Move line/s up in visual mode (looses indent)
 
-    "nnoremap <leader>pv :Sex!<CR>
+    nnoremap <leader>pv :Sex!<CR>
 
 " Plugin helpers
     "set signcolum           " adds additional column for linters, debuggers... notifications
