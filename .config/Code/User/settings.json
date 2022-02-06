@@ -1,15 +1,71 @@
 {
-    "C_Cpp.clang_format_path": "/usr/bin/clang-format",
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
     "editor.minimap.enabled": false,
-    "window.zoomLevel": 0,
-    "editor.formatOnSave": true,
     "vim.neovimPath": "/usr/vin/nvim",
     "liveshare.presence": true,
-    "editor.fontFamily": "'PragmataPro Liga','Iosevka Term SS08','Droid Sans Mono', monospace, 'Droid Sans Fallback'",
-    "editor.fontLigatures": true,
+    "editor.fontFamily": "monospace,'Iosevka Term SS08','Droid Sans Mono', 'Droid Sans Fallback'",
+    "editor.fontLigatures": false,
     "editor.fontSize": 15,
-    "workbench.colorTheme": "NaturalContrast-HC",
+    "workbench.colorTheme": "Noctis High Contrast No Italic",
     "workbench.preferredDarkColorTheme": "One Dark Darker",
-    "C_Cpp.clang_format_fallbackStyle": "Google"
+    "C_Cpp.clang_format_fallbackStyle": "google",
+    "doxdocgen.file.copyrightTag": [
+        "@copyright Copyright (c) {year} E-Agle TRT"
+    ],
+    "doxdocgen.file.customTag": [
+        "@ingroup",
+        "@prefix"
+    ],
+    "doxdocgen.file.fileOrder": [
+        "file",
+        "author",
+        "date",
+        "custom",
+        "empty",
+        "brief",
+        "empty",
+        "copyright"
+    ],
+    "doxdocgen.generic.useGitUserEmail": true,
+    "doxdocgen.generic.useGitUserName": true,
+    "doxdocgen.generic.authorTag": "@author  {author} [{email}]",
+    "doxdocgen.file.fileTemplate": "@file    {name}",
+    "doxdocgen.file.versionTag": "@version   0.1 ",
+    "doxdocgen.generic.dateTemplate": "@date    {date}",
+    "doxdocgen.generic.briefTemplate": "@brief   {text} ",
+    "doxdocgen.generic.paramTemplate": "@param   {param} ",
+    "doxdocgen.generic.returnTemplate": "@return  {type} ",
+    "editor.formatOnSave": true,
+    "doxdocgen.generic.filteredKeywords": [],
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.tabSize": 4,
+    "stm32-for-vscode.openOCDPath": "/usr/bin/openocd",
+    "stm32-for-vscode.makePath": "/usr/bin/make",
+    "stm32-for-vscode.armToolchainPath": "/usr/bin",
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": false,
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off",
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.highlights.customHighlight": {
+        "[ ]": {
+            "background": "#ff000080"
+        },
+        "[x]": {
+            "background": "#00ff0080"
+        }
+    },
 }

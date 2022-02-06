@@ -13,10 +13,11 @@
 " Some basics:
     set number relativenumber
     set cursorline
-    set nohlsearch
+    "set nohlsearch
     set noerrorbells
     set incsearch
     set scrolloff=8         " start scrolling when near 8 lines to top or bottom -> keeps cursor more in center
+    set nowrap
     " Tabs stuff:
         set tabstop=4 softtabstop=4
         set shiftwidth=4
@@ -28,12 +29,13 @@
 	syntax on
 	colorscheme slate
 	set encoding=utf-8
+    set mouse=a
 
 " Helpers
-    nnoremap J :m .+1<CR>==         " Move line down in normal mode
-    nnoremap K :m .-2<CR>==         " Move line up in normal mode
-    vnoremap J :m '>+1<CR>gv=gv     " Move line/s down in visual mode (looses indent)
-    vnoremap K :m '<-2<CR>gv=gv     " Move line/s up in visual mode (looses indent)
+"    nnoremap J :m .+1<CR>==         " Move line down in normal mode
+"    nnoremap K :m .-2<CR>==         " Move line up in normal mode
+"    vnoremap J :m '>+1<CR>gv=gv     " Move line/s down in visual mode (looses indent)
+"    vnoremap K :m '<-2<CR>gv=gv     " Move line/s up in visual mode (looses indent)
 
     nnoremap <leader>pv :Sex!<CR>
 
@@ -57,6 +59,8 @@ set clipboard+=unnamedplus	" Save yanked files to clipboard
 
 " Replace all, is aliased to S.
 	nnoremap S :%s//g<Left><Left>
+" Yank to end of line from cursor position
+	nnoremap Y y$
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 	"autocmd BufWritePre * %s/\s\+$//e

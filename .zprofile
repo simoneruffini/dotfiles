@@ -23,6 +23,7 @@ export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export ANDROID_PREFS_ROOT="$XDG_CONFIG_HOME"/android
 export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME"/android/emulator
+export ANDROID_SDK_HOME="$XDG_DATA_HOME"/android/
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
 
