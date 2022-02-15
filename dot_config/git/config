@@ -1,0 +1,20 @@
+[alias]
+	graph = log --graph --oneline --color --all --date-order --decorate
+    graph1 = graph1-specific --all
+    graph2 = graph2-specific --all
+    graph3 = graph3-specific --all
+    graph1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+    graph2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    graph3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+[user]
+	name = Simone Ruffini
+	email = simone.ruffini@tutanota.com
+# set "nvim" as tool for merging
+[merge]
+  tool = nvimdiff
+#[mergetool]
+#	path = nvim
+[gui]
+	recentrepo = /home/simone/Documents/repos/RememberMe
+[pager]
+	branch = false
