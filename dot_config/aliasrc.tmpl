@@ -49,3 +49,7 @@ alias \
 alias \
     dots="chezmoi" \
     gitc="$EDITOR $XDG_CONFIG_HOME/git/config"
+{{ if and (eq .chezmoi.os "linux") (regexMatch ".*microsoft.*" (lower .chezmoi.kernel.osrelease))}}
+# WSL aliases
+alias cdd="cd {{ .win_home }}"
+{{end}}
