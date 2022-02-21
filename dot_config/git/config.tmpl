@@ -1,5 +1,5 @@
 [alias]
-	graph = log --graph --oneline --color --all --date-order --decorate
+    graph = log --graph --oneline --color --all --date-order --decorate
     graph1 = graph1-specific --all
     graph2 = graph2-specific --all
     graph3 = graph3-specific --all
@@ -8,7 +8,7 @@
     graph3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 [user]
 	name = Simone Ruffini
-	email = simone.ruffini@tutanota.com
+	email = {{ .email }}
 
 # set "nvim" as tool for merging
 [merge]
