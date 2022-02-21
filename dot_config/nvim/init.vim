@@ -1,3 +1,14 @@
+" ============= Vim-Plug ============== "{{{
+
+call plug#begin(stdpath('data') . '/plugged')
+ 
+"Plug 'nvim-lua/plenary.nvim' " don't forget to add this one if you don't have it yet!
+"Plug 'ThePrimeagen/harpoon'  " The goal of Harpoon is to get you where you want with the fewest keystrokes
+
+call plug#end()
+
+"}}}
+
 " Every command can be searched with :h command_name or throug :option and then search the command
 
 " Stuff to be checked
@@ -8,7 +19,7 @@
     "set hidden              search it in :h
 
 " Leader Key
-    "let mapleader = " "      Leader is space
+    "let mapleader = ' '      "Leader is space
 
 " Some basics:
     set number relativenumber
@@ -16,20 +27,21 @@
     "set nohlsearch
     set noerrorbells
     set incsearch
+    set mouse=a
     set scrolloff=8         " start scrolling when near 8 lines to top or bottom -> keeps cursor more in center
+    set colorcolumn=80 
     set nowrap
     " Tabs stuff:
         set tabstop=4 softtabstop=4
         set shiftwidth=4
         set expandtab
         set smartindent
-	"nnoremap c "_c          " makes changed text not saved in registers, does not alter registers
-	set nocompatible         " disables compatibility with vi mode
-	filetype plugin on
-	syntax on
-	colorscheme slate
-	set encoding=utf-8
-    set mouse=a
+    "nnoremap c "_c          " makes changed text not saved in registers, does not alter registers
+    set nocompatible         " disables compatibility with vi mode
+    filetype plugin on
+    syntax on
+    colorscheme slate
+    set encoding=utf-8
 
 " Helpers
 "    nnoremap J :m .+1<CR>==         " Move line down in normal mode
@@ -43,25 +55,25 @@
     "set signcolum           " adds additional column for linters, debuggers... notifications
 
 set exrc                    " vim . loads custom vimrc inside .
-set clipboard+=unnamedplus	" Save yanked files to clipboard
+"set clipboard+=unnamedplus " Save yanked files to clipboard
 
 " Enable autocompletion:
-	set wildmode=longest,list,full
+    set wildmode=longest,list,full
 
 " Disables automatic commenting on newline:
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Shortcutting split navigation, saving a keypress:
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
+    map <C-h> <C-w>h
+    map <C-j> <C-w>j
+    map <C-k> <C-w>k
+    map <C-l> <C-w>l
 
 " Replace all, is aliased to S.
-	nnoremap S :%s//g<Left><Left>
+    nnoremap S :%s//g<Left><Left>
 " Yank to end of line from cursor position
-	nnoremap Y y$
+    nnoremap Y y$
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
-	"autocmd BufWritePre * %s/\s\+$//e
-	"autocmd BufWritepre * %s/\n\+\%$//e
+    "autocmd BufWritePre * %s/\s\+$//e
+    "autocmd BufWritepre * %s/\n\+\%$//e

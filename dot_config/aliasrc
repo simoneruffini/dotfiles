@@ -5,41 +5,47 @@
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
-	..="cd .."  \
-	bc="bc -l"  \
-	cp="cp -iv" \
-	mv="mv -iv" \
-	mkd="mkdir -pv" \
-	rm="rm -vI --preserve-root" \
-	cal="cal -m"
+    ..="cd .."  \
+    bc="bc -l"  \
+    cp="cp -iv" \
+    mv="mv -iv" \
+    mkd="mkdir -pv" \
+    rm="rm -vI --preserve-root" \
+    cal="cal -m"
 
 # Colorize commands when possible.
 alias \
-	ls="ls -hN --color=auto --group-directories-first" \
-	ll="ls -lahN --color=auto --group-directories-first" \
-	grep="grep --color=auto" \
-	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi" \
+    ls="ls -hN --color=auto --group-directories-first" \
+    ll="ls -lahN --color=auto --group-directories-first" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    ccat="highlight --out-format=ansi" \
     rvim="vim -R" \
     rnvim="nvim -R"
 
 # These common commands are just too long! Abbreviate them.
 alias \
-	ka="killall" \
-	g="git" \
-	trem="transmission-remote" \
-	sdn="sudo shutdown -h now" \
-	f="$FILE" \
-	e="$EDITOR" \
-	v="$EDITOR" \
-	p="sudo pacman" \
-	j="jobs -l" \
-	z="zathura"
+    ka="killall" \
+    sdn="sudo shutdown -h now" \
+    f="$FILE" \
+    e="$EDITOR" \
+    v="$EDITOR" \
+    p="sudo pacman" \
+    j="jobs -l" \
+    z="zathura"
 
 # Application specific
 alias \
-	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
-	wget="wget -c"  #restart download from where it left
+    tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
+    wget="wget -c"  #restart download from where it left
+# Handy stuff
+alias \
+    cdt="pushd /tmp" \
+    cde="popd" \
+    x="gio trash "\
+    rsyncp="rsync -hh -a --info=stats1,progress2 --partial"
 
-# alias to manage dotfiles
-alias dots="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+# Alias to manage dotfiles
+alias \
+    dots="chezmoi" \
+    gitc="$EDITOR $XDG_CONFIG_HOME/git/config"
