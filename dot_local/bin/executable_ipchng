@@ -1,0 +1,51 @@
+#! /bin/sh
+# This tool changes ip address of eth0 interface on windows
+# it will work only in wsl
+
+ip_logbox=10.1.1.12
+netmask_logbox=255.0.0.0
+ip_miv=169.254.28.12
+netmask_miv=255.255.0.0
+
+usage(){
+    echo "Usage: $(basename $0) [-h] {miv|logbox}"
+}
+netsh_base_cmd='interface ipv4 set address name="Ethernet" static static'
+netsh_path='C:\Windows\System32\'
+
+help() {
+    usage
+    echo
+    echo " This tool changes the ip and netmask of interafce eth0"
+    echo " OPTION: logbox"
+    echo " ip:\t\t $ip_logbox"
+    echo " netmask:\t $netmask_logbox"
+    echo " OPTION: miv"
+    echo " ip:\t\t $ip_miv"
+    echo " netmask:\t $netmask_miv"
+}
+if [ $# -ne 1 ] ; then
+    help 
+    exit 1
+fi
+current_ip=$(ip addr show dev eth0 | grep inet | sed -e "s/^[ \t]*//g" | awk -F "[ ]" '{print $2}')
+
+case "$1" in 
+    logbox)
+        echo change eht0 ip from $current_ip to $ip_logbox with netmask $netmask_logbox
+        powershell.exe "C:\\Users\\f89227d\\Documents\\scripts\\ipchng.ps1" -ip $ip_logbox -netmask $netmask_logbox > /dev/null
+        ;;
+    miv)
+        echo change eht0 ip from $current_ip to $ip_miv with netmask $netmask_miv
+        powershell.exe "C:\\Users\\f89227d\\Documents\\scripts\\ipchng.ps1" -ip $ip_miv -netmask $netmask_miv > /dev/null
+        ;;
+    -h)
+        help
+        ;;
+    *)
+        echo "error: option not recognized " 
+        usage
+        exit 1
+        ;;
+esac
+exit 0

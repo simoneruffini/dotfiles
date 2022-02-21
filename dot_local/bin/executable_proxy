@@ -1,0 +1,63 @@
+#! /bin/sh
+# This tool enables or disable the proxy settings, i.e.
+# everyting regarding cntlm process and http_proxy shell variables
+
+proxy_address="http://127.0.0.1:3128"
+
+usage(){
+    echo "Usage: $(basename $0) [-h] {enable|disable}"
+}
+
+help() {
+    usage
+    echo
+    echo " This tool eanbles or disalbes the proxy on this machine, i.e. enables/disables"
+    echo " cntlm if it is installed and changes all proxy env varialbes"
+    echo " OPTIONS"
+    echo "      enable      enables proxy"
+    echo "      disable     disables proxy"
+}
+if [ $# -ne 1 ] ; then
+    help 
+    exit 1
+fi
+
+cntlm_installed=false;
+if command -v cntlm >/dev/null 2>$1; then
+   cntlm_installed=true; 
+fi
+
+Enable(){
+    if $cntlm_installed; then
+        echo start cntlm
+        sudo service cntlm start
+    fi
+    sed  -i 's~\(export {HTTP,HTTPS,FTP}_PROXY=\).*~\1"'$proxy_address'"~g' ~/.profile
+    echo "type:     source ~/.profile"
+}
+
+Disable(){
+    if $cntlm_installed; then
+        echo stop cntlm
+        sudo service cntlm stop
+    fi
+    sed  -i 's~\(export {HTTP,HTTPS,FTP}_PROXY=\).*~\1""~g' ~/.profile
+    echo "type:     source ~/.profile"
+}
+case "$1" in 
+    enable)
+        Enable
+        ;;
+    disable)
+        Disable
+        ;;
+    -h)
+        help
+        ;;
+    *)
+        echo "error: option not recognized " 
+        usage
+        exit 1
+        ;;
+esac
+exit 0
