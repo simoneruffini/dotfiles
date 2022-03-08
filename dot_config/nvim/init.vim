@@ -73,6 +73,9 @@ set exrc                    " vim . loads custom vimrc inside .
     nnoremap S :%s//g<Left><Left>
 " Yank to end of line from cursor position
     nnoremap Y y$
+" Enable/disable invisible characters
+    set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+    nnoremap <C-h> :set list!<CR>
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
     "autocmd BufWritePre * %s/\s\+$//e
