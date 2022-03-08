@@ -250,8 +250,8 @@ bar {
     status_command while  echo " $(cat /sys/class/power_supply/BAT0/capacity)%  $(date +'%d-%m-%Y %l:%M %p')"; do sleep 60; done
 
     colors {
-        statusline $foreground
-        background $background
+        #statusline $foreground
+        #background $background
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
@@ -261,7 +261,8 @@ include /etc/sway/config.d/*
 
 ## Font
 #
-font "Iosevka SS08 Semibold Extended"
+#font "Iosevka SS08 Semibold Extended"
+font "monospace"
 #font "OCRA"
 
 ## Display manager for multiple displays

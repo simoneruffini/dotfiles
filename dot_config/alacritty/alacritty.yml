@@ -111,10 +111,9 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    #family: "Iosevka Term SS08"
-    #family: "PragmataPro Mono Liga"
-    ##family: "PragmataPro Liga"
     family: monospace
+    #family: "Iosevka Term SS08"
+    #family: "PragmataPro Liga"
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -127,7 +126,8 @@ font:
     # value specified for the normal font.
     #family: "Iosevka Term SS08 Heavy"
     #family: "Iosevka Term SS08"
-    family: "PragmataPro Liga"
+    family: monospace
+    #family: "PragmataPro Liga"
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -140,7 +140,8 @@ font:
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: "Iosevka Term SS08"
-    family: "PragmataPro Liga"
+    family: monospace
+    #family: "PragmataPro Liga"
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -152,7 +153,8 @@ font:
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: "Iosevka Term SS08 Heavy"
-    family: "PragmataPro Liga"
+    family: monospace
+    #family: "PragmataPro Liga"
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
