@@ -181,6 +181,7 @@ input type:touchpad {
     bindsym $mod+Shift+b border pixel $border_size
 
     ##Gaps
+    gaps inner 5 
     bindsym $mod+g gaps inner current plus $gaps_def_inc
     bindsym $mod+Shift+g gaps inner current set 0
 
