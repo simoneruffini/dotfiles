@@ -37,14 +37,17 @@ alias \
 # Application specific
 alias \
     tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
-    wget="wget -c"  #restart download from where it left
+    wget="wget -c" \
+    ssh="TERM=\"xterm-256color\"; ssh"
+
 # Handy stuff
 alias \
     cdt="pushd /tmp" \
     cde="popd" \
     x="gio trash "\
     rsyncp="rsync -hh -a --info=stats1,progress2 --partial"\
-    gdiff="git diff --no-index"
+    gdiff="git diff --no-index"\
+    nixcfg="sudo vim /etc/nixos/configuration.nix"
 
 # Alias to manage dotfiles
 alias \
