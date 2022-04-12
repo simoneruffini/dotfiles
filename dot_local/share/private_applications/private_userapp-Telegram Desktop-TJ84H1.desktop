@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=/nix/store/ffjvmxrz865fdfaq7pjkf1vvc1yjh2vz-telegram-desktop-3.1.11/bin/.telegram-desktop-wrapped -workdir /home/simone/.local/share/TelegramDesktop/ -- %u
+Name=Telegram Desktop
+Comment=Custom definition for Telegram Desktop
