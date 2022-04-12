@@ -34,6 +34,10 @@ profile stationary_thund_2k(main)_FHD(left90){
 	output DP-7 enable position 0,0 transform 90
 	output eDP-1 disable 
 }
+profile stationary_unito{
+    output DP-1 enable mode 2560x1440@59.951Hz position 1080,0 
+	output eDP-1 disable 
+}
 profile stationary_hdmi{
 	output eDP-1 disable
 	output DP-3 enable mode 1920x1080 position 5778,0
