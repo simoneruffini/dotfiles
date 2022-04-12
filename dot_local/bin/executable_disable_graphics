@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if lsmod | grep -q acpi_call; then
 methods="
