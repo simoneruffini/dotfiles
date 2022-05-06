@@ -32,7 +32,8 @@ client.focused #4c7899 #ffffff #000000
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu bemenu-run -b -l 10 --scrollbar=always -H 25 -m all --no-exec | xargs swaymsg exec --
-set $file swaymsg exec -- $term -e lf
+set $file swaymsg exec -- $term -e "zsh -ci lfcd"
+set $wifi " zsh -ci show_wifi_ap.sh"
 
 ### Output configuration
 # use personal script to set background
@@ -83,7 +84,12 @@ input type:touchpad {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Show file manager
     bindsym $mod+o exec $file
+
+    # Show wifi list
+    bindsym $mod+c exec $wifi
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -160,7 +166,7 @@ input type:touchpad {
     # https://i3wm.org/docs/userguide.html#back_and_forth
     # Discussion on how to alternate between windows:
     # https://github.com/i3/i3/issues/838
-    bindsym $mod+Shift+Tab workspace back_and_forth
+    bindsym $mod+Tab workspace back_and_forth
 
 #
 # Layout stuff:
@@ -248,8 +254,9 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while  echo " $(cat /sys/class/power_supply/BAT0/capacity)%  $(date +'%d-%m-%Y %l:%M %p')"; do sleep 60; done
+    status_command ${XDG_CONFIG:-~/.config}/sway/swaybar_status.sh
 
+    separator_symbol "~"
     colors {
         #statusline $foreground
         #background $background
@@ -269,7 +276,7 @@ font "monospace"
 ## Display manager for multiple displays
 #
 # config files in .config/kanshi/cofig
-exec_always pkill kanshi; exec kanshi
+exec_always pkill kanshi; exec_always kanshi
 ##exec kanshi
 # enable autotiling
 # needs autotiling package
