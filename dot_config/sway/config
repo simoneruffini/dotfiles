@@ -33,7 +33,8 @@ client.focused #4c7899 #ffffff #000000
 # on the original workspace that the command was run on.
 set $menu bemenu-run -b -l 10 --scrollbar=always -H 25 -m all --no-exec | xargs swaymsg exec --
 set $file swaymsg exec -- $term -e "zsh -ci lfcd"
-set $wifi " zsh -ci show_wifi_ap.sh"
+set $wifi_noscan " zsh -ci wifi_applet.sh"
+set $wifi_scan 'zsh -ci "wifi_applet.sh scan"'
 
 ### Output configuration
 # use personal script to set background
@@ -89,7 +90,8 @@ input type:touchpad {
     bindsym $mod+o exec $file
 
     # Show wifi list
-    bindsym $mod+c exec $wifi
+    bindsym $mod+c exec $wifi_noscan
+    bindsym $mod+Shift+c exec $wifi_scan
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -255,7 +257,7 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command ${XDG_CONFIG:-~/.config}/sway/swaybar_status.sh
-
+    
     separator_symbol "~"
     colors {
         #statusline $foreground
