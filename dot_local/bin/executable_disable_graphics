@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if lsmod | grep -q acpi_call; then
 methods="
@@ -32,11 +32,10 @@ methods="
 \_SB.PCI0.PEG0.PEGP.SGOF
 \_SB.PCI0.AGP.VGA.PX02
 "
-
 for m in $methods; do
-    echo -n "Trying $m: "
-    echo $m > /proc/acpi/call
-    result=$(cat /proc/acpi/call)
+    printf "Trying %-28s" "$m"
+    echo "$m" > "/proc/acpi/call"
+    result=$(tr -d '\0' < /proc/acpi/call)
     case "$result" in
         Error*)
             echo "failed"
