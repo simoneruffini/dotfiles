@@ -18,4 +18,6 @@ bgloc="$XDG_DATA_HOME/bg"
 wal -n -i -q "$(readlink -f "$bgloc")" --backend colorz --saturate 0.5 2>/dev/null
 
 pkill swaybg
-swaybg --output "*" --image "$bgloc" --mode fill &
+swaybg --output "*" --image "$bgloc" --mode fill >/dev/null 2>&1 & disown
+
+
