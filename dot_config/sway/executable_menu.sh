@@ -1,2 +1,13 @@
 #! /bin/sh
-bemenu-run -b -l 10 --scrollbar=always -H 25 --monitor "-1" --no-exec | xargs swaymsg exec --
+bemenu_params=" --center \
+                --prompt=RUN:\
+                --list=10 \
+                --fn=Monospace \
+                --scrollbar=always \
+                --line-height=25 \
+                --monitor=-2 \
+                --no-overlap \
+                --width-factor=0.4 \
+                --no-exec"
+
+bemenu-run $bemenu_params | xargs swaymsg exec --
