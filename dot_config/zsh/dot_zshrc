@@ -1,5 +1,8 @@
 # Zsh config
 
+#TODO: this needs to be removed is a nixos bug
+source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshenv"
+
 # Set history position ans numbero of records saved
 HISTFILE=~/.cache/zsh/histfile
 HISTSIZE=1000

@@ -1,21 +1,66 @@
+###############################################################################
+# FILE ORDER
+# .zshenv → .zprofile → .zshrc → .zlogin → .zlogout
 #
+# This is read first and read every time, regardless of the shell being login,
+# interactive, or none.
+#
+# This is the recommended place to set environment variables, though I still
+# prefer to set my environment variables in .zprofile
+#
+# Why would you need it? Because, for example, if you have a script that gets
+# called by launchd, it will run under non-interactive non-login shell, so
+# neither .zshrc nor .zprofile will get loaded.
+###############################################################################
+
+#echo "in ZSHENV"
+## FIREFOX STUFF
+
 # enable wayland mode for mozilla
-#
 export MOZ_ENABLE_WAYLAND=1
 
-#QT STUFF
-##
-##Enable QT5 wayland mode
-## if you want to run a qt app without wayland support run it via ./application -platfotm  xcb
-export QT_QPA_PLATFORM=wayland 
+## QT STUFF
 
+#NEEDS: qt5-wayland
+# To run a Qt 5 application with the Wayland plugin [3], use -platform wayland
+# or QT_QPA_PLATFORM=wayland environment variable. To force the usage of X11 on
+# a Wayland session, use QT_QPA_PLATFORM=xcb. This might be necessary for some
+# proprietary applications that do not use the system's implementation of Qt,
+# such as zoom. 
+export QT_QPA_PLATFORM="wayland"
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_WAYLAND_FORCE_DPI="physical"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export _JAVA_AWT_WM_NONREPARENTING=1
 
-##
+#NEEDS: qt5ct
+# On some compositors, for example sway, Qt applications running natively might
+# have missing functionality. For example, KeepassXC will be unable to minimize
+# to tray. This can be solved by installing qt5ct and setting
+# QT_QPA_PLATFORMTHEME=qt5ct before running the application.
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+## JAVA STUFF
+
+# https://github.com/swaywm/sway/issues/595
+# https://wiki.archlinux.org/title/Java#Gray_window,_applications_not_resizing_with_WM,_menus_immediately_closing
+export _JAVA_AWT_WM_NONREPARENTING="1"
+export AWT_TOOLKIT="MToolkit"
+
+# use system anti-aliased fonts
+# https://wiki.archlinux.org/title/Java#Better_font_rendering
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+
+## STUFF
+
 export HOSTNAME=$HOST 
 
-## Start a stratup Python Script before any interactive shell is launched
-export PYTHONSTARTUP=${XDG_CONFIG_HOME}/python/pythonstartup.py
+## PYTHON STUFF
 
+## Start a stratup Python Script before any interactive shell is launched
+#export PYTHONSTARTUP=${XDG_CONFIG_HOME}/python/pythonstartup.py
+
+## ZSH STUFF
+
+## https://blog.patshead.com/2011/04/improve-your-oh-my-zsh-startup-time-maybe.html
+skip_global_compinit=1
