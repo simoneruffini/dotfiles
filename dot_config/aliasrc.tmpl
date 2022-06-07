@@ -47,7 +47,10 @@ alias \
     x="gio trash "\
     rsyncp="rsync -hh -a --info=stats1,progress2 --partial"\
     gdiff="git diff --no-index"\
-    nixcfg="sudo vim /etc/nixos/configuration.nix"
+    nixcfg="sudo vim /etc/nixos/configuration.nix"\
+    nixsize="nix-build --dry-run '<nixpkgs>' -A "\
+    lg="lazygit"
+
 
 # Alias to manage dotfiles
 alias \

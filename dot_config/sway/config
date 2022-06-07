@@ -31,7 +31,7 @@ client.focused #4c7899 #ffffff #000000
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run -b -l 10 --scrollbar=always -H 25 -m all --no-exec | xargs swaymsg exec --
+set $menu ${XDG_CONFIG:-~/.config}/sway/menu.sh 
 set $file swaymsg exec -- $term -e "zsh -ci lfcd"
 set $wifi_noscan " zsh -ci wifi_applet.sh"
 set $wifi_scan 'zsh -ci "wifi_applet.sh scan"'
@@ -266,9 +266,6 @@ bar {
     }
 }
 
-include /etc/sway/config.d/*
-
-
 ## Font
 #
 #font "Iosevka SS08 Semibold Extended"
@@ -280,6 +277,12 @@ font "monospace"
 # config files in .config/kanshi/cofig
 exec_always pkill kanshi; exec_always kanshi
 ##exec kanshi
+
+## Enable xdg-desktop-portal-wlr
+# https://github.com/emersion/xdg-desktop-portal-wlr#running
+# https://wiki.archlinux.org/title/PipeWire#xdg-desktop-portal-wlr
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 # enable autotiling
 # needs autotiling package
 exec autotiling
