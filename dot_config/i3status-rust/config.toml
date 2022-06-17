@@ -1,0 +1,40 @@
+theme = "solarized-dark"
+icons = "awesome"
+scrolling ="natural"
+
+[[block]]
+block = "backlight"
+device = "intel_backlight"
+format = "{brightness}"
+minimum = 8
+maximum = 100
+cycle = [100,90,80,70,60,50,40,30,20,10,8]
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "cpu"
+interval = 1
+format="{utilization} {frequency}"
+
+#[[block]]
+#block = "load"
+#interval = 1
+#format = "{1m}"
+
+
+[[block]]
+block = "custom"
+shell= "sh"
+command = "echo $(power_use.sh)W"
+interval = 10
+
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage} {time}"
+
+[[block]]
+block = "time"

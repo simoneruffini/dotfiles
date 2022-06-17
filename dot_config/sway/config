@@ -263,9 +263,10 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command ${XDG_CONFIG:-~/.config}/sway/swaybar_status.sh
+    #status_command ${XDG_CONFIG:-~/.config}/sway/swaybar_status.sh
+    status_command i3status-rs
     
-    separator_symbol "~"
+    #separator_symbol "~"
     colors {
         #statusline $foreground
         #background $background
