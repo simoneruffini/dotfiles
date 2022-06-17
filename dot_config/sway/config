@@ -65,12 +65,19 @@ output eDP-1 scale 2.5
 # Read `man 5 sway-input` for more information about this section.
 
 ### Touchpad
-#
+# dwt: disable while typing
 input type:touchpad {
-	dwt enabled
-	natural_scroll enabled
+    accel_profile adaptive 
 	tap enabled
-       	middle_emulation enabled
+	dwt enabled  
+	natural_scroll enabled
+    middle_emulation enabled
+}
+# Keyboard input
+#
+input type:keyboard {
+    xkb_layout us
+    xkb_options "caps:escape, shift:both_capslock_cancel" 
 }
 
 ### Key bindings
