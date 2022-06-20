@@ -293,4 +293,4 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 
 # enable autotiling
 # needs autotiling package
-exec autotiling
+exec_always autotiling
