@@ -21,28 +21,34 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+### Gpg
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"         
-export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
+### Wget
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+### Zsh
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export HISTFILE="${XDG_STATE_HOME:-$HOME/.local/share}/zsh/history"
+### Android
 export ANDROID_PREFS_ROOT="${XDG_CONFIG_HOME:-$HOME/.config}/android"
 export ANDROID_EMULATOR_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/android/emulator"
 export ANDROID_SDK_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/android/"
+### Rust
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
-
-export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"                 ## all librearies installed with go get will be saved here
+#### Go
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"                 ## all libraries installed with go get will be saved here
 export PATH="$PATH:$GOPATH/bin"                                         ## this will be applied to the path before, so order is important
 export GOPATH="$GOPATH:$HOME/Documents/go"                              ## all additional code that will be written here will be visible by go
 
-export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
+### Java
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME:-$HOME/.config}"/java
+
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/pass"
 export GRIPHOME="${XDG_CACHE_HOME:-$HOME/.cache}/grip"
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME:-$HOME/.config}"/java
-export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
-export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
 
-# Other program settings
+export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
+
+# Other program settings mainly wayland stuff
 export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40% "
 export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.

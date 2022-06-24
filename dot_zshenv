@@ -13,7 +13,8 @@
 # neither .zshrc nor .zprofile will get loaded.
 ###############################################################################
 
-#echo "in ZSHENV"
+export ZDOTDIR=$HOME/.config/zsh
+
 ## FIREFOX STUFF
 
 # enable wayland mode for mozilla
