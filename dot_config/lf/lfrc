@@ -59,8 +59,6 @@ cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 # cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 # map r push :rename<space>
 
-# make sure trash folder exists
-%mkdir -p ~/.trash
 #%mkdir -p $XDG_DATA_HOME/Trash/file $XDG_DATA_HOME/Trash/info
 
 # move current file or selected files to trash folder
@@ -72,6 +70,7 @@ cmd trash ${{
         gio trash $fx
     else
         printf "gio not existing using mv\n"
+        # make sure trash folder exists
         mkdir -p ~/.trash
         mv -- $fx ~/.trash
     fi
