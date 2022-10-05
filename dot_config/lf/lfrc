@@ -1,7 +1,7 @@
 # interpreter for shell commands (needs to be POSIX compatible)
 set shell bash
 
-set color256
+#set color256
 set icons
 
 # List of hidden file glob patterns. Patterns can be given as relative or absolute
