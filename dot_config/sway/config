@@ -88,7 +88,7 @@ input type:keyboard {
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+q kill
+    bindsym $mod+Shift+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -171,6 +171,42 @@ input type:keyboard {
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
+    ##################################
+    # window switch setting
+    set $mode_set_switch_window "set_switch_window: [0]-[9]"
+    mode $mode_set_switch_window {
+        bindsym 1 mark 1; mode "default"
+        bindsym 2 mark 2; mode "default"
+        bindsym 3 mark 3; mode "default"
+        bindsym 4 mark 4; mode "default"
+        bindsym 5 mark 5; mode "default"
+        bindsym 6 mark 6; mode "default"
+        bindsym 7 mark 7; mode "default"
+        bindsym 8 mark 8; mode "default"
+        bindsym 9 mark 9; mode "default"
+        bindsym 0 mark 0; mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+    bindsym $mod+ctrl+t mode $mode_set_switch_window
+    set $mode_switch_window "switch_window: [0]-[9]"
+    mode $mode_switch_window {
+        bindsym 1 [con_mark="1"] focus; mode "default"
+        bindsym 2 [con_mark="2"] focus; mode "default"
+        bindsym 3 [con_mark="3"] focus; mode "default"
+        bindsym 4 [con_mark="4"] focus; mode "default"
+        bindsym 5 [con_mark="5"] focus; mode "default"
+        bindsym 6 [con_mark="6"] focus; mode "default"
+        bindsym 7 [con_mark="7"] focus; mode "default"
+        bindsym 8 [con_mark="8"] focus; mode "default"
+        bindsym 9 [con_mark="9"] focus; mode "default"
+        bindsym 0 [con_mark="0"] focus; mode "default"
+        bindsym t mode $mode_set_switch_window
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+    bindsym $mod+t mode $mode_switch_window
+
     # Go back and forth between the current and the previous workspace
     # https://i3wm.org/docs/userguide.html#back_and_forth
     # Discussion on how to alternate between windows:
@@ -192,7 +228,7 @@ input type:keyboard {
     smart_borders no_gaps
     default_floating_border normal $border_size
     # Toggle border apperance
-    bindsym $mod+b border normal $border_size
+    bindsym $mod+b border normal
     bindsym $mod+Shift+b border pixel $border_size
 
     ##Gaps
@@ -217,6 +253,10 @@ input type:keyboard {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+    bindsym --no-repeat $mod+equal  exec "echo 1 > /tmp/sovpipe"
+    bindsym --release $mod+equal  exec "echo 0 > /tmp/sovpipe"
+    #exec_always rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 #
 # Scratchpad:
 #
@@ -260,7 +300,9 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-
+    mode dock
+    font "pango: Mx437 Olivetti M15-2y 11"
+    gaps 10 40
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     #status_command ${XDG_CONFIG:-~/.config}/sway/swaybar_status.sh
@@ -268,9 +310,11 @@ bar {
     
     #separator_symbol "~"
     colors {
-        #statusline $foreground
-        #background $background
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        background #FFFFFF
+        statusline #000000
+        separator #AAAA00
+        #inactive_workspace #32323200 #32323200 #5c5c5c
+        inactive_workspace #FFFFFF #FFFFFF #000000
     }
 }
 

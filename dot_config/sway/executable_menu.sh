@@ -1,6 +1,5 @@
 #! /bin/sh
-bemenu_params=" --center \
-                --prompt=RUN:\
+bemenu_params=" --prompt=RUN:\
                 --list=10 \
                 --fn=Monospace \
                 --scrollbar=always \

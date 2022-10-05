@@ -1,17 +1,30 @@
-theme = "solarized-dark"
-icons = "awesome"
+#theme = "solarized-dark"
 scrolling ="natural"
+#theme = "plain"
+icons = "none"
+
+[theme] 
+name = "plain"
+[theme.overrides]
+idle_bg = "#FFFFFF"
+idle_fg = "#000000"
+separator_bg ="#FFFFFF"
+separator_fg ="#000000"
+warning_bg ="#FFFFFF"
+good_bg ="#FFFFFF"
+info_bg ="#FFFFFF"
+crytical_bg ="#FFFFFF"
+
+[[block]]
+block = "sound"
 
 [[block]]
 block = "backlight"
 device = "intel_backlight"
-format = "{brightness}"
+format = "{brightness}"
 minimum = 8
 maximum = 100
-cycle = [100,90,80,70,60,50,40,30,20,10,8]
-
-[[block]]
-block = "sound"
+cycle = [100,90,80,70,60,50,40,30,20,10,8,10,20,30,40,50,60,70,80,90]
 
 [[block]]
 block = "cpu"
@@ -27,8 +40,8 @@ format="{utilization} {frequency}"
 [[block]]
 block = "custom"
 shell= "sh"
-command = "echo $(power_use.sh)W"
-interval = 10
+command = "echo PWR $(power_use.sh)W"
+interval = 5
 
 
 [[block]]
