@@ -1,11 +1,11 @@
 " ============= Vim-Plug ============== "{{{
 
-call plug#begin(stdpath('data') . '/plugged')
+"call plug#begin(stdpath('data') . '/plugged')
  
 "Plug 'nvim-lua/plenary.nvim' " don't forget to add this one if you don't have it yet!
 "Plug 'ThePrimeagen/harpoon'  " The goal of Harpoon is to get you where you want with the fewest keystrokes
 
-call plug#end()
+"call plug#end()
 
 "}}}
 
@@ -19,10 +19,10 @@ call plug#end()
     "set hidden              search it in :h
 
 " Leader Key
-    "let mapleader = ' '      "Leader is space
+    let mapleader = " "      "Leader is space
 
 " Some basics:
-    set number relativenumber
+    set number 
     set cursorline
     "set nohlsearch
     set noerrorbells
@@ -36,6 +36,9 @@ call plug#end()
         set shiftwidth=4
         set expandtab
         set smartindent
+
+    autocmd FileType vhdl :setlocal tabstop=2 softtabstop=2 shiftwidth=2 
+
     "nnoremap c "_c          " makes changed text not saved in registers, does not alter registers
     set nocompatible         " disables compatibility with vi mode
     filetype plugin on
@@ -43,13 +46,18 @@ call plug#end()
     colorscheme slate
     set encoding=utf-8
 
-" Helpers
-"    nnoremap J :m .+1<CR>==         " Move line down in normal mode
-"    nnoremap K :m .-2<CR>==         " Move line up in normal mode
-"    vnoremap J :m '>+1<CR>gv=gv     " Move line/s down in visual mode (looses indent)
-"    vnoremap K :m '<-2<CR>gv=gv     " Move line/s up in visual mode (looses indent)
+" Esentials mappings
+    " Yank to end of line from cursor position
+        nnoremap Y y$
+    " Clear highligted search by pressing esc
+        nnoremap <silent> <esc> :noh<cr><esc>
 
-    nnoremap <leader>pv :Sex!<CR>
+" Helpers
+  " Open ex
+      nnoremap <leader>pv :Explore<CR>:let g:netrw_browse_split=0<CR>
+      nnoremap <leader>E :Sex!<CR>
+  " Create new Tab 
+      nnoremap <C-w><C-T> :tabnew % <cr> 
 
 " Plugin helpers
     "set signcolum           " adds additional column for linters, debuggers... notifications
@@ -71,12 +79,21 @@ set exrc                    " vim . loads custom vimrc inside .
 
 " Replace all, is aliased to S.
     nnoremap S :%s//g<Left><Left>
-" Yank to end of line from cursor position
-    nnoremap Y y$
+
 " Enable/disable invisible characters
     set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
-    nnoremap <C-h> :set list!<CR>
+    nnoremap <Leader>h :set list!<CR>
+
+" Shitty vimrc reloader
+    nnoremap <silent> <Leader><Leader> :silent tabdo windo source $MYVIMRC<cr>
+
+" Netrw stuff
+    " When pressing v will split on the right instead of left
+    let g:netrw_altv=1 
+    let g:netrw_browse_split=0
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
     "autocmd BufWritePre * %s/\s\+$//e
     "autocmd BufWritepre * %s/\n\+\%$//e
+
+"lua require('plugins')
