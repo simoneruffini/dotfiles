@@ -1,10 +1,10 @@
 # Zsh config
 
 #TODO: this needs to be removed is a nixos bug
-source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshenv"
+#source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshenv"
 
-# Set history position ans numbero of records saved
-HISTFILE=~/.cache/zsh/histfile
+# Set history position ans number of records saved
+##HISTFILE=~/.cache/zsh/histfile already set in zprofile
 HISTSIZE=1000
 SAVEHIST=1000
 
@@ -12,13 +12,27 @@ SAVEHIST=1000
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc"
 
 # Autoload prompt theme system
-autoload -U compinit promptinit
-zstyle ':completion:*' menu select	# Enable autocompletion with arrow keys
+zstyle ':completion:*' menu select cache-path ${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache # Enable autocompletion with arrow keys
+
+# Highlight the current autocomplete option
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# Better SSH/Rsync/SCP Autocomplete
+zstyle ':completion:*:(scp|rsync|rsyncp):*' tag-order ' hosts:-ipaddr:ip\ address hosts:-host:host files'
+zstyle ':completion:*:(ssh|scp|rsync|rsyncp):*:hosts-host' ignored-patterns '*(.|:)*' loopback ip6-loopback localhost ip6-localhost broadcasthost
+zstyle ':completion:*:(ssh|scp|rsync|rsyncp):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
+
+# Allow for autocomplete to be case insensitive
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
+  '+l:|?=** r:|?=**'
+
+autoload -U compinit promptinit && compinit -i
 zmodload zsh/complist
-compinit				# Enable completition
+
+# The folder must exist!!!
+compinit -d ${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-$ZSH_VERSION # Enable completition
 promptinit				# Enable completion listing extensions
 _comp_options+=(globdots)		# Include hidden files in autocompletion.
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION  #zcompdumps speed completion listing
 
 # This will set the default prompt to the walters theme
 prompt walters

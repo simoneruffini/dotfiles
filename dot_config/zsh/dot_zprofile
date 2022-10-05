@@ -26,7 +26,7 @@ export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 ### Wget
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 ### Zsh
-export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+#export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export HISTFILE="${XDG_STATE_HOME:-$HOME/.local/share}/zsh/history"
 ### Android
 export ANDROID_PREFS_ROOT="${XDG_CONFIG_HOME:-$HOME/.config}/android"
