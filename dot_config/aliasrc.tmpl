@@ -53,7 +53,7 @@ alias \
 
 #NIX stuff
 alias \
-    nixcfg="sudo vim /etc/nixos/configuration.nix"\
+    nixcfg="vim /etc/nixos/configuration.nix"\
     nixsize="nix-build --dry-run '<nixpkgs>' -A "\
     drvshw="ll $(nix-store --query $(readlink /run/current-system/sw/bin/vim)) "
 
@@ -65,8 +65,10 @@ alias \
 # Sway Aliases
 alias \
     lsway="sway -V >/tmp/sway.log 2>&1" \
-    jsway="systemd-cat --identifier=sway sway -V"
-    swaylog="tail -f /tmp/sway.log"
+    swaylog="tail -f /tmp/sway.log"\
+    jsway="systemd-cat --identifier=sway sway -V"\
+    jswaylog="journalctl --follow -t sway"
+
 {{ if and (eq .chezmoi.os "linux") (regexMatch ".*microsoft.*" (lower .chezmoi.kernel.osrelease))}}
 # WSL aliases
 alias cdd="cd {{ .win_home }}"
