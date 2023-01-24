@@ -50,6 +50,8 @@ s = scaling next
 <Shift+S> = upscaling next
 a = zoom actual
 r = reset
+<Ctrl+r> = rotate by 90
+<Ctrl+Shift+R> = rotate by -90
 
 # Gif playback
 <period> = next_frame
