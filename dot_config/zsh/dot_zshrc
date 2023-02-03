@@ -100,5 +100,50 @@ bindkey '^e' edit-command-line
 # Load wpgtk colorscheme
 (cat $HOME/.cache/wal/sequences &)
 
+## @brief open man page with vim as a pager
+## @param man parameters
+viman() {
+    ## env: to evaluate a command with a particualar environment variable
+    ##      removes the use of `export` that overwrites environment varaibles 
+    ## MANPAGER: env variable to let man run with a particular pager
+    ## vim:
+    ##     --not-a-term (vim >= 8.0.1208 Nov 2017) remove complaints of stdin 
+    ##     not beeing a TTY
+    ##     -M modifications not allowed
+    ##     +MANPAGER use the manpager.vim built into vim to read colorescaped
+    ##      man pages from vim (:help manpager.vim)
+    ##     - read from stdin
+    ## man $1: run man with the input the first parameter of the function
+    env MANPAGER='vim --not-a-term -M +MANPAGER -' man "$@"
+}
+
+## @brief open man page with neovim as a pager
+## @param man parameters
+nvman(){
+    ## env: to evaluate a command with a particualar environment variable
+    ##      removes the use of `export` that overwrites environment varaibles 
+    ## MANPAGER: env variable to let man run with a particular pager
+    ## vim:
+    ##     -M modifications not allowed
+    ##     +Man! use the man.lua built in lua script to display the current
+    ##     buffer contents as a manpage (:help Man)
+    ##     - read from stdin
+    ## man $1: run man with the input the first parameter of the function
+    env MANPAGER='nvim -M +Man! -' man "$@"
+}
+
+## @brief open man page with either neovim, vim or default to less as a pager
+## @param man parameters
+vman() {
+    if $(command -pv nvim >/dev/null 2>&1) ; then
+        nvman "$@"
+    elif $(command -pv vim >/dev/null 2>&1) ; then
+        viman "$@"
+    else
+        man "$@"
+    fi
+     
+}
+
 # Load syntax highlighting; should be last. (the plugin must be installed)
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
