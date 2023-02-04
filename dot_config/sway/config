@@ -73,6 +73,7 @@ input type:touchpad {
 	natural_scroll enabled
     middle_emulation enabled
 }
+#
 # Keyboard input
 #
 input type:keyboard {
@@ -119,6 +120,7 @@ input type:keyboard {
     bindsym Print exec screenshot_menu.sh save
     # by coping to clipboard 
     bindsym Shift+Print exec screenshot_menu.sh copy
+    bindsym $mod+Shift+S exec screenshot_menu.sh copy
 #
 # Moving around:
 #
