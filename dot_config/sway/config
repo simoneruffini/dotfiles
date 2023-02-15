@@ -21,6 +21,10 @@ set $right l
 
 # Preferred terminal emulator
 set $term alacritty
+set $term_float alacritty --class floating
+
+# Focus
+focus_follows_mouse yes
 
 # Border values
 set $border_size 4
@@ -37,12 +41,13 @@ set $wifi_noscan " zsh -ci wifi_applet.sh"
 set $wifi_scan 'zsh -ci "wifi_applet.sh scan"'
 
 ### Output configuration
-# use personal script to set background
-exec setbg
+#
+    # use personal script to set background
+    exec setbg
 
-# To get the names of other outputs run: swaymsg -t get_outputs
-output eDP-1 scale 2.5
-# note: this will be amended by kanshi
+    # To get the names of other outputs run: swaymsg -t get_outputs
+    output eDP-1 scale 2.5
+    # note: this will be amended by kanshi
 
 ### Idle configuration
 #
@@ -87,6 +92,8 @@ input type:keyboard {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    ## floating version
+    bindsym $mod+Shift+Return exec $term_float
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -94,12 +101,14 @@ input type:keyboard {
     # Start your launcher
     bindsym $mod+d exec $menu
 
-    # Show file manager
-    bindsym $mod+o exec $file
+    # Reload the configuration file
+    bindsym $mod+Shift+r reload
 
-    # Show wifi list
-    bindsym $mod+c exec $wifi_noscan
-    bindsym $mod+Shift+c exec $wifi_scan
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec -- swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+    # Launch system power menu in bemenu with custom script
+    bindsym $mod+Shift+Escape exec power_menu.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -108,19 +117,21 @@ input type:keyboard {
     # mouse button for dragging.
     floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym $mod+Shift+r reload
+# Extras:
+#
+    # Show file manager
+    bindsym $mod+o exec $file
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-    # Launch system power menu in bemenu
-    bindsym $mod+Shift+Escape exec power_menu.sh
+    # Show wifi list
+    bindsym $mod+c exec $wifi_noscan
+    bindsym $mod+Shift+c exec $wifi_scan
+
     # Launch system screenshot menu in bemenu
     # by saving picture
     bindsym Print exec screenshot_menu.sh save
     # by coping to clipboard 
     bindsym Shift+Print exec screenshot_menu.sh copy
-    bindsym $mod+Shift+S exec screenshot_menu.sh copy
+    bindsym $mod+Shift+S exec screenshot_menu.sh copy area
 #
 # Moving around:
 #
@@ -274,27 +285,27 @@ input type:keyboard {
 #
 # Resizing containers:
 #
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    mode "resize" {
+        # left will shrink the containers width
+        # right will grow the containers width
+        # up will shrink the containers height
+        # down will grow the containers height
+        bindsym $left resize shrink width 10px
+        bindsym $down resize grow height 10px
+        bindsym $up resize shrink height 10px
+        bindsym $right resize grow width 10px
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+        # Ditto, with arrow keys
+        bindsym Left resize shrink width 10px
+        bindsym Down resize grow height 10px
+        bindsym Up resize shrink height 10px
+        bindsym Right resize grow width 10px
 
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
+        # Return to default mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+    bindsym $mod+r mode "resize"
 
 #
 # Status Bar:
@@ -322,15 +333,16 @@ bar {
 
 ## Font
 #
-#font "Iosevka SS08 Semibold Extended"
-font "monospace"
-#font "OCRA"
+    font "monospace"
+    # alternatives in case the monospace is not installed
+    #font "Iosevka SS08 Semibold Extended"
+    #font "OCRA"
 
 ## Display manager for multiple displays
 #
-# config files in .config/kanshi/cofig
-exec_always pkill kanshi; exec_always kanshi
-##exec kanshi
+    # config files in .config/kanshi/cofig
+    exec_always pkill kanshi; exec_always kanshi
+    #exec kanshi
 
 ## Enable xdg-desktop-portal-wlr
 # https://github.com/emersion/xdg-desktop-portal-wlr#running

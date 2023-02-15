@@ -7,11 +7,27 @@
 base_cmd="grimshot --notify"
 
 ## action can be either copy or save, by default save
-if [ -z "$1" ] 
-then 
+if [ -z "$1" ]; then 
 	action="save"
 else
 	action="$1"
+fi
+
+## If the action to perform gets specified by command line execute that
+if [ ! -z "$2" ]; then
+    echo "$2"
+    case "$2" in
+        area|window|output|screen)
+            #execute the action
+            $base_cmd $action "$2" 
+            # then exit
+            exit 0
+        ;;
+        *)
+            # anything else exit
+            exit 1
+        ;;
+    esac
 fi
 
 print_area=" Select Area"
