@@ -1,0 +1,29 @@
+{
+  "flakes": [
+    {
+      "from": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      },
+      "to": {
+        "owner": "NixOS",
+        "ref": "nixos-22.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    {
+      "from": {
+        "id": "nixpkgs_unstable",
+        "type": "indirect"
+      },
+      "to": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    }
+  ],
+  "version": 2
+}
