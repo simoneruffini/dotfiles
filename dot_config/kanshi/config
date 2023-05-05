@@ -1,3 +1,7 @@
+profile iuli_display_sborato {
+    output "Unknown ZQE-CAA 0x0000F622" enable mode 3440x1440@99.982Hz scale 1 
+	output eDP-1 disable 
+}
 profile stationary_thund_2k(main)_2K(ritght-90){
 	output "Dell Inc. DELL S2721DGF GM06223" enable mode 2560x1440@59.951000Hz scale 1 position 0,220
 	output "Dell Inc. DELL S2721DGF 7BJBW13" enable mode 2560x1440@59.951000Hz scale 1 position 2560,0 transform 90 
@@ -13,13 +17,47 @@ profile stationary_thund_2k(main)_2K(left90){
 	output "Dell Inc. DELL S2721DGF 7BJBW13" enable mode 2560x1440@59.951000Hz scale 1 position 0,0 transform 270
 	output eDP-1 disable 
 }
-profile stationary_thund_2k@120Hz(main)_4k(bottom){
-	output "Dell Inc. DELL S2721DGF GM06223" enable mode 2560x1440@119.998001Hz scale 1 position 0,0
-	output eDP-1 enable position 308,1440 scale 2
+profile stationary_thund_2k@144Hz(main)_4k(left){
+	output "Dell Inc. DELL S2721DGF GM06223" enable mode 2560x1440@143.912003Hz scale 1 position 1920,0
+	output eDP-1 enable position 0,190 scale 2
+    exec swaymsg 'workspace 1,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 2,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 3,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 4,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 5,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 6,  move workspace to eDP-1'
+    exec swaymsg 'workspace 7,  move workspace to eDP-1'
+    exec swaymsg 'workspace 8,  move workspace to eDP-1'
+    exec swaymsg 'workspace 9,  move workspace to eDP-1'
+    exec swaymsg 'workspace 10, move workspace to eDP-1'
 }
 profile stationary_thund_2k@144Hz(main)_4k(bottom){
 	output "Dell Inc. DELL S2721DGF GM06223" enable mode 2560x1440@143.912003Hz scale 1 position 0,0
 	output eDP-1 enable position 308,1440 scale 2
+    exec swaymsg 'workspace 1,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 2,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 3,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 4,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 5,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 6,  move workspace to eDP-1'
+    exec swaymsg 'workspace 7,  move workspace to eDP-1'
+    exec swaymsg 'workspace 8,  move workspace to eDP-1'
+    exec swaymsg 'workspace 9,  move workspace to eDP-1'
+    exec swaymsg 'workspace 10, move workspace to eDP-1'
+}
+profile stationary_thund_2k@120Hz(main)_4k(bottom){
+	output "Dell Inc. DELL S2721DGF GM06223" enable mode 2560x1440@119.998001Hz scale 1 position 0,0
+	output eDP-1 enable position 308,1440 scale 2
+    exec swaymsg 'workspace 1,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 2,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 3,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 4,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 5,  move workspace to output "Dell Inc. DELL S2721DGF GM06223"'
+    exec swaymsg 'workspace 6,  move workspace to eDP-1'
+    exec swaymsg 'workspace 7,  move workspace to eDP-1'
+    exec swaymsg 'workspace 8,  move workspace to eDP-1'
+    exec swaymsg 'workspace 9,  move workspace to eDP-1'
+    exec swaymsg 'workspace 10, move workspace to eDP-1'
 }
 profile stationary_thund_2k@120Hz{
 	output "Dell Inc. DELL S2721DGF 7BJBW13" enable mode 2560x1440@119.998001Hz scale 1

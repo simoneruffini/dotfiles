@@ -36,7 +36,7 @@ EOF
     set nocompatible         " disables compatibility with vi mode
     filetype plugin on
     syntax on
-    colorscheme default
+    "colorscheme default
     set encoding=utf-8
 
 " Esentials mappings
@@ -56,6 +56,8 @@ EOF
   " Scrolli in quicklist
       nnoremap <leader>] :cnext <cr>
       nnoremap <leader>[ :cprev <cr>
+  "Show Buffers and setup to change it
+      nnoremap <leader>b :ls<cr>:b 
 
 " Plugin helpers
     "set signcolum           " adds additional column for linters, debuggers... notifications
@@ -84,12 +86,8 @@ set exrc                    " vim . loads custom vimrc inside .
     nnoremap <Leader>h :set list!<CR>
 
 " Shitty vimrc reloader
-   nnoremap <silent> <Leader>v :silent tabdo windo source $MYVIMRC<cr>
-   nnoremap <silent> <Leader>V :e $MYVIMRC<cr>
-" Change colorscheme to bright one
-    nnoremap <Leader>c :colorscheme quiet<CR>
-" Change colorscheme to default
-    nnoremap <Leader>d :colorscheme default<CR>
+   nnoremap <silent> <Leader>V :tabdo windo source $MYVIMRC<cr>
+   nnoremap <silent> <Leader>v :tabnew $MYVIMRC<cr>
 " Netrw stuff
     " When pressing v will split on the right instead of left
     let g:netrw_altv=1 
