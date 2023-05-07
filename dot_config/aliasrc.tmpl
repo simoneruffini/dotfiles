@@ -54,8 +54,8 @@ alias \
 #NIX stuff
 alias \
     nixcfg="vim /etc/nixos/configuration.nix"\
-    nixsize="nix-build --dry-run '<nixpkgs>' -A "\
-    drvshw="ll $(nix-store --query $(readlink /run/current-system/sw/bin/vim)) "
+    nixsize="nix-build --dry-run '<nixpkgs>' -A " #\
+    #drvshw="ll $(nix-store --query $(readlink /run/current-system/sw/bin/vim)) "
 
 # Alias to manage dotfiles
 alias \
