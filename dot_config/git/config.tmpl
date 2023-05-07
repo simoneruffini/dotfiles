@@ -17,21 +17,10 @@
 [difftool]
   tool = nvimdiff
   prompt = false
-
-#[diff "nvimdiff4"]
-#  command="nvim -f -d $REMOTE $LOCAL; \ 
-#           ret=\"$?\"; \
-#           if test \"$test\" -eq 0; then \
-#             cp -- \"$LOCAL\" \"$MERGED\" \
-#           fi"
-
-# set "nvim" as tool for merging
 [merge]
   tool = nvimdiff
-
 [pager]
 	branch = false
-
 [include]
     path = ./private_config
 [filter "lfs"]
