@@ -98,7 +98,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Load wpgtk colorscheme
-(cat $HOME/.cache/wal/sequences &)
+#(cat $HOME/.cache/wal/sequences &)
 
 ## @brief open man page with vim as a pager
 ## @param man parameters
