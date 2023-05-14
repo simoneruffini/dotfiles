@@ -4,6 +4,10 @@ set shell bash
 #set color256
 set icons
 
+
+# Remove highliting of cursor in the preview split
+set cursorpreviewfmt ""
+
 # List of hidden file glob patterns. Patterns can be given as relative or absolute
 # paths. Globbing supports the usual special characters, '*' to match any sequence,
 # '?' to match any character, and '[...]' or '[^...] to match character sets or 
